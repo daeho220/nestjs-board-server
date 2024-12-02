@@ -29,6 +29,10 @@ export class UsersService {
     };
   }
 
+  async findByNickname(nickname: string) {
+    return this.userModel.findOne({ nickname });
+  }
+
   create(createUserDto: CreateUserDto) {
     return 'This action adds a new user';
   }

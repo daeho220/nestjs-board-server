@@ -10,6 +10,7 @@ import {
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
+import { LoginDto } from './dto/login.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -18,6 +19,11 @@ export class AuthController {
   @Post('signup')
   create(@Body() createAuthDto: CreateAuthDto) {
     return this.authService.signup(createAuthDto);
+  }
+
+  @Post('login')
+  login(@Body() LoginDto: LoginDto) {
+    return this.authService.login(LoginDto);
   }
 
   @Get()
