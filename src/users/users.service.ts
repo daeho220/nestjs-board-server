@@ -13,7 +13,7 @@ export class UsersService {
   async createUser(nickname: string, password: string) {
     const existingUser = await this.userModel.findOne({ nickname });
     if (existingUser) {
-      throw new ConflictException('이미 존재하는 닉네임입니다.');
+      throw new ConflictException('중복된 닉네임입니다.');
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
